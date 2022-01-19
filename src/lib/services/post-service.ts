@@ -7,8 +7,7 @@ export type IPost = {
   liked: boolean;
 };
 
-const API_URL =
-  "https://api.nasa.gov/planetary/apod?api_key=l7pBZ7ulf3kTf8ylh9nZuawrgk9vM17gtU9dsAgJ";
+const API_URL = `https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_API_KEY}`;
 
 const getSome = (count: number): Promise<IPost[]> => {
   return fetch(`${API_URL}&count=${count}`)

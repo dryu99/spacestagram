@@ -74,6 +74,14 @@
     is-module "^1.0.0"
     resolve "^1.19.0"
 
+"@rollup/plugin-replace@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-replace/-/plugin-replace-3.0.1.tgz#f774550f482091719e52e9f14f67ffc0046a883d"
+  integrity sha512-989J5oRzf3mm0pO/0djTijdfEh9U3n63BIXN5X7T4U9BP+fN4oxQ6DvDuBvFaHA6scaHQRclqmKQEkBhB7k7Hg==
+  dependencies:
+    "@rollup/pluginutils" "^3.1.0"
+    magic-string "^0.25.7"
+
 "@rollup/plugin-typescript@^8.0.0":
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-typescript/-/plugin-typescript-8.3.0.tgz#bc1077fa5897b980fc27e376c4e377882c63e68b"
@@ -263,6 +271,11 @@ detect-indent@^6.0.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/detect-indent/-/detect-indent-6.1.0.tgz#592485ebbbf6b3b1ab2be175c8393d04ca0d57e6"
   integrity sha512-reYkTUJAZb9gUuZ2RvVCNhVHdg62RHnJ7WJl8ftMi4diZ6NWlciOzQN88pUhSELEwflJht4oQDv0F0BMlwaYtA==
+
+dotenv@^14.2.0:
+  version "14.2.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-14.2.0.tgz#7e77fd5dd6cff5942c4496e1acf2d0f37a9e67aa"
+  integrity sha512-05POuPJyPpO6jqzTNweQFfAyMSD4qa4lvsMOWyTRTdpHKy6nnnN+IYWaXF+lHivhBH/ufDKlR4IWCAN3oPnHuw==
 
 es6-promise@^3.1.2:
   version "3.3.1"

@@ -1,3 +1,4 @@
+import { config } from "dotenv";
 import svelte from "rollup-plugin-svelte";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
@@ -6,6 +7,9 @@ import { terser } from "rollup-plugin-terser";
 import sveltePreprocess from "svelte-preprocess";
 import typescript from "@rollup/plugin-typescript";
 import css from "rollup-plugin-css-only";
+import replace from "@rollup/plugin-replace";
+
+config();
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -69,6 +73,11 @@ export default {
       inlineSources: !production,
       rootDir: "./src",
     }),
+    replace({
+      preventAssignment: true,
+      "process.env.NASA_API_KEY": JSON.stringify(process.env.NASA_API_KEY),
+    }),
+    // replace({ "process.env.NODE_ENV": JSON.stringify("production") }),
 
     // In dev mode, call `npm run start` once
     // the bundle has been generated
