@@ -1,109 +1,76 @@
-*Psst — looking for a more complete solution? Check out [SvelteKit](https://kit.svelte.dev), the official framework for building web applications of all sizes, with a beautiful development experience and flexible filesystem-based routing.*
+# Spacestagram 🚀
 
-*Looking for a shareable component template instead? You can [use SvelteKit for that as well](https://kit.svelte.dev/docs#packaging) or the older [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+Shopify Front End Developer Intern Challenge - Summer 2022
 
----
+![screenshot of app](./screenshot.png)
 
-# svelte app
+Check it out here!
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+## Getting Started
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
+### Prerequisites
 
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
-```
+- [node](https://nodejs.org/en/download/)
 
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
+### Installation
 
+1. Clone the repo
 
-## Get started
+   ```sh
+   git clone https://github.com/dryu99/spacestagram.git
+   ```
 
-Install the dependencies...
+2. Install NPM packages
 
-```bash
-cd svelte-app
-npm install
-```
+   ```sh
+   npm install
+   ```
 
-...then start [Rollup](https://rollupjs.org):
+   or
 
-```bash
-npm run dev
-```
+   ```sh
+   yarn
+   ```
 
-Navigate to [localhost:8080](http://localhost:8080). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
+3. Get a free API key at [https://api.nasa.gov/](https://api.nasa.gov/)
+4. Create an `.env` file in the project's root directory with your API key
 
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
+   ```
+   NASA_API_KEY=<YOUR_API_KEY>
+   ```
 
-If you're using [Visual Studio Code](https://code.visualstudio.com/) we recommend installing the official extension [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode). If you are using other editors you may need to install a plugin in order to get syntax highlighting and intellisense.
+### Development
 
-## Building and running in production mode
+1. Start the application
 
-To create an optimised version of the app:
+   ```sh
+   yarn dev
+   ```
 
-```bash
-npm run build
-```
+2. View the application at [http://localhost:8080](http://localhost:8080)
 
-You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
+## Features
 
+### MVP requirements
 
-## Single-page app mode
+- Fetch data from one of [NASA's APIs](https://api.nasa.gov) and display resulting images
+- Each image result should list at least a title, date of capture (ideally in earth_date) and a button to “like” that image
+- Each image can be “liked”, and a user should be able to undo their “like”
+- The HTML that ends up being served client-side should be accessible and semantic ([MDN reference](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML))
 
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
+### Additional features
 
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
+- Implemented **infinite scrolling** to allow users to improve content discovery and the associated user experience
+- Added a **parallax star background** to create a soothing and immersive user experience ✨
 
-```js
-"start": "sirv public --single"
-```
+### Future Improvements
 
-## Using TypeScript
+- **Server side rendering**: Rendering resources on the server before serving the page to the client would help improve SEO and reduce the number of network requests needed on initial page load.
+- **Virtual rendering**: A drawback from infinite scrolling is that performance will eventually degrade as the user continues to scroll down and grow the DOM tree. Virtually rendering the list of posts will ensure only those DOM elements that appear in the viewport will actually be in in the DOM tree. This will keep the tree lean and the site snappy.
+  - Part of this task also involves addressing the negative implications from using virtual rendering e.g. losing native search
+- **Unit/Integration/E2E tests**: I opted to not write tests for the sake of rapidly developing an MVP. After finalizing a good design, we can start writing tests to validate the behaviour of the app and catch regressions.
 
-This template comes with a script to set up a TypeScript development environment, you can run it immediately after cloning the template with:
+## Tech Stack
 
-```bash
-node scripts/setupTypeScript.js
-```
-
-Or remove the script via:
-
-```bash
-rm scripts/setupTypeScript.js
-```
-
-If you want to use `baseUrl` or `path` aliases within your `tsconfig`, you need to set up `@rollup/plugin-alias` to tell Rollup to resolve the aliases. For more info, see [this StackOverflow question](https://stackoverflow.com/questions/63427935/setup-tsconfig-path-in-svelte).
-
-## Deploying to the web
-
-### With [Vercel](https://vercel.com)
-
-Install `vercel` if you haven't already:
-
-```bash
-npm install -g vercel
-```
-
-Then, from within your project folder:
-
-```bash
-cd public
-vercel deploy --name my-project
-```
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public my-project.surge.sh
-```
+- [Svelte](https://svelte.dev/): I've never used Svelte before and saw this as a good opportunity to try it out! I appreciated its concise syntax, lean bundle size, and amazing documentation.
+- [TypeScript](https://www.typescriptlang.org/): I'm a big advocate for TypeScript for how much it speeds up development through its type checking, improved refactoring, and compile-time errors.
