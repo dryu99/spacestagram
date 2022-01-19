@@ -44,8 +44,8 @@
 
 <style>
   main {
-    padding: 2em 3vw;
-    max-width: 240px;
+    background-color: black;
+    padding: 2em 20vw;
   }
 
   h1 {
@@ -62,11 +62,5 @@
 
   li {
     margin-bottom: 2em;
-  }
-
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
   }
 </style>
