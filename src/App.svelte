@@ -52,7 +52,9 @@
 </script>
 
 <main>
-  <h1>Spacestagram</h1>
+  <header>
+    <h1>Spacestagram</h1>
+  </header>
   <ul>
     {#each posts as post (post.id)}
       <li>
@@ -68,6 +70,10 @@
   main {
     background-color: black;
     padding: 2em 20vw;
+  }
+
+  header {
+    text-align: center;
   }
 
   h1 {

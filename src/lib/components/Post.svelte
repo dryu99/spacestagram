@@ -12,7 +12,7 @@
 
 <div class="container">
   <img src={post.imageURL} alt={post.title} />
-  <div class="header-container">
+  <header>
     <h1>{post.title}</h1>
     <button class="like-button" on:click={toggleLike}>
       <!-- License: CC Attribution. Made by remartwork: https://dribbble.com/remartwork -->
@@ -30,7 +30,7 @@
         />
       </svg>
     </button>
-  </div>
+  </header>
   <p>{post.description}</p>
   <p class="date">{post.date}</p>
 </div>
@@ -44,7 +44,7 @@
     background-color: #fafafa;
   }
 
-  .header-container {
+  header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -61,6 +61,12 @@
   }
   .like-button:active {
     background: none;
+  }
+
+  /* only applies on keyboard triggered focus (for accessibilty) */
+  .like-button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 2px 2px #51a7e8;
   }
 
   .date {
