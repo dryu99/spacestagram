@@ -1,22 +1,14 @@
 <script lang="ts">
-  import type { Post } from "./lib/types";
+  import { onMount } from "svelte";
+  import type { Post } from "./lib/services/post-service";
+  import postService from "./lib/services/post-service";
 
-  const posts: Post[] = [
-    {
-      title: "test title",
-      description: "test descriptiotniotenioteaw",
-      liked: false,
-      imageCapturedAt: new Date(),
-      imageURL: "https://i.redd.it/0mriegkicyl61.jpg",
-    },
-    {
-      title: "test title 2222",
-      description: "yes",
-      liked: false,
-      imageCapturedAt: new Date(),
-      imageURL: "https://i.redd.it/0mriegkicyl61.jpg",
-    },
-  ];
+  let posts: Post[] = [];
+
+  onMount(async () => {
+    posts = await postService.getSome(2);
+    console.log({ posts });
+  });
 </script>
 
 <main>
