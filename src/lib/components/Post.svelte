@@ -1,5 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
+  import { fade } from "svelte/transition";
   import type { IPost } from "../services/post-service";
   export let post: IPost;
 
@@ -10,11 +11,15 @@
   const dispatch = createEventDispatcher();
 </script>
 
-<div class="container">
+<div class="container" transition:fade>
   <img src={post.imageURL} alt={post.title} />
   <header>
     <h1>{post.title}</h1>
-    <button class="like-button" on:click={toggleLike}>
+    <button
+      class="like-button"
+      class:disabled={post.liked}
+      on:click={toggleLike}
+    >
       <!-- License: CC Attribution. Made by remartwork: https://dribbble.com/remartwork -->
       <svg
         width="30px"
@@ -40,7 +45,7 @@
     display: flex;
     flex-direction: column;
     padding: 2em;
-    border-radius: 7.5px;
+    border-radius: 4px;
     background-color: #fafafa;
   }
 
@@ -56,11 +61,13 @@
     cursor: pointer;
     margin: 0.25em 0;
   }
-  .like-button:hover {
-    opacity: 50%;
-  }
+
   .like-button:active {
     background: none;
+  }
+
+  .like-button:not(.disabled):hover {
+    opacity: 50%;
   }
 
   /* only applies on keyboard triggered focus (for accessibilty) */
