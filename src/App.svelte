@@ -4,6 +4,7 @@
   import postService from "./lib/services/post-service";
   import Post from "./lib/components/Post.svelte";
   import InfiniteScroll from "./lib/components/InfiniteScroll.svelte";
+  import Stars from "./lib/components/Stars.svelte";
 
   const API_FETCH_AMOUNT = 10;
 
@@ -74,6 +75,7 @@
   {/if}
 </main>
 
+<Stars />
 <InfiniteScroll on:loadMore={loadMorePosts} />
 
 <style>
@@ -96,6 +98,11 @@
   ul {
     list-style-type: none;
     padding: 0;
+    min-width: 600px;
+
+    /* ensure list is overlayed on top of stars  */
+    position: relative;
+    z-index: 99;
   }
 
   li {
