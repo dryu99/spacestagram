@@ -39,7 +39,7 @@
   .container {
     display: flex;
     flex-direction: column;
-    padding: 1em;
+    padding: 2em;
     border-radius: 7.5px;
     background-color: #fafafa;
   }
@@ -85,7 +85,6 @@
   img {
     display: block;
     margin: 0 auto;
-    border: 1px solid #d2d2d2;
     max-width: 100%;
     height: auto;
   }

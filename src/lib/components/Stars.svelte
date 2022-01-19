@@ -18,8 +18,8 @@
     for (let i = 0; i < count; i++) {
       stars.push({
         type,
-        left: `${randomNumber(1, 99)}%`,
-        bottom: `${randomNumber(1, 99)}%`,
+        left: `${randomNumber(0, 99)}%`,
+        bottom: `${randomNumber(0, 99)}%`,
         animationDuration: `${randomNumber(50, 200)}s`,
       });
     }

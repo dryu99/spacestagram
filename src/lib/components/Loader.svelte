@@ -3,7 +3,7 @@
 <style>
   .loader {
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 2em auto;
     width: 80px;
     height: 80px;
   }
@@ -14,8 +14,8 @@
     height: 64px;
     margin: 8px;
     border-radius: 50%;
-    border: 6px solid #ff3e00;
-    border-color: #ff3e00 transparent #ff3e00 transparent;
+    border: 6px solid #ffffff;
+    border-color: #ffffff transparent #ffffff transparent;
     animation: loader 1.2s linear infinite;
   }
   @keyframes loader {

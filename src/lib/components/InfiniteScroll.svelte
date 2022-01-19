@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
   import { onMount, onDestroy, createEventDispatcher } from "svelte";
 
   const threshold = 100; // i.e. offset from bottom of page (including overflow)
