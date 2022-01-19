@@ -8,6 +8,7 @@
   const API_FETCH_AMOUNT = 10;
 
   let posts: IPost[] = [];
+  let showLoader = false;
 
   const fetchPosts = async () => {
     const newPosts = await postService.getSome(API_FETCH_AMOUNT);
@@ -23,6 +24,12 @@
           }
         : post
     );
+  };
+
+  const loadMorePosts = async () => {
+    showLoader = true;
+    await fetchPosts();
+    showLoader = false;
   };
 
   // fetch initial batch
@@ -62,9 +69,12 @@
       </li>
     {/each}
   </ul>
+  {#if showLoader}
+    <div class="loader" />
+  {/if}
 </main>
 
-<InfiniteScroll on:loadMore={() => fetchPosts()} />
+<InfiniteScroll on:loadMore={loadMorePosts} />
 
 <style>
   main {
@@ -90,5 +100,31 @@
 
   li {
     margin-bottom: 3em;
+  }
+
+  .loader {
+    display: block;
+    margin: 0 auto;
+    width: 80px;
+    height: 80px;
+  }
+  .loader:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #ff3e00;
+    border-color: #ff3e00 transparent #ff3e00 transparent;
+    animation: loader 1.2s linear infinite;
+  }
+  @keyframes loader {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 </style>
