@@ -10,11 +10,13 @@
   const API_FETCH_AMOUNT = 10;
 
   let posts: IPost[] = [];
-  let showLoader = false;
+  let showLoader = true;
 
   const fetchPosts = async () => {
+    showLoader = true;
     const newPosts = await postService.getSome(API_FETCH_AMOUNT);
     posts = [...posts, ...newPosts];
+    showLoader = false;
   };
 
   const toggleLike = (e: any) => {
@@ -29,9 +31,7 @@
   };
 
   const loadMorePosts = async () => {
-    showLoader = true;
     await fetchPosts();
-    showLoader = false;
   };
 
   // fetch initial batch
@@ -68,6 +68,7 @@
     align-items: center;
     background-color: black;
     padding: 0 2em;
+    min-height: 100%;
   }
 
   .content {
