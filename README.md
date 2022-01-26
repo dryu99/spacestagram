@@ -1,7 +1,5 @@
 # Spacestagram 🚀
 
-Shopify Front End Developer Intern Challenge - Summer 2022
-
 ![screenshot of app](./screenshot.png)
 
 Check it out [here](https://spacestagram-dryu99.vercel.app/)!
